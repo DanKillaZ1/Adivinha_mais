@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa</title>
+</head>
+<body>
+    
+
+      <input/>
+      <button>Compare com o meu segredo numeros que nao se repetem</button>
+        
+     <script> 
+     
+        function sorteia(){
+            return Math.round(Math.random() * 10);
+        }
+
+        function sorteiaNumeros(quantidade){
+            var segredos = [];
+
+            var numero = 1;
+
+            while(numero <= quantidade){
+
+                var numeroAleatorio = sorteia();
+
+                if(numeroAleatorio !== 0 ){
+
+                    var achou = false;
+
+                    for(var posicao = 0; posicao < segredos.length; posicao++){
+                    
+                        if(segredos[posicao] == numeroAleatorio){
+                            achou = true;
+                            break;
+                        }
+                    }
+
+                    if(achou == false){
+                        segredos.push(numeroAleatorio);
+                        numero++;
+                    }
+
+                }
+                var achou = false;
+
+                for(var posicao = 0; posicao < segredos.length; posicao++){
+                    
+                    if(segredos[posicao] == numeroAleatorio){
+                        achou = true;
+                        break;
+                    }
+                }
+
+                if(achou == false){
+                    segredos.push(numeroAleatorio);
+                    numero++;
+                }
+                                      
+
+            }
+            return segredos;
+        }
+
+        var segredos = sorteiaNumeros(5);   
+        
+        var input = document.querySelector("input");
+        input.focus();
+
+        function verifica(){
+
+
+            
+            var achou = false;
+
+            for(var posicao= 0; posicao < segredos.length; posicao++){
+
+                if(input.value == segredos[posicao]){  // =====>>input.value e o valor que sera digitado 
+
+                    alert("Voce ACERTOU!");
+                    achou = true;
+                    break;
+
+                }
+
+                
+            }
+            if(achou == false){
+                 alert("Você errou!");
+            }
+           
+
+             
+            
+            input.value = ""; //=========>> Limpa o button para receber novo numero
+            input.focus();    //=========>> limpa a caixa e ja deica selecionada 
+        }
+             
+            var button = document.querySelector("button");
+
+            button.onclick = verifica;
+                
+       
+
+
+                
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        // var ano = 2020;   
+        
+        // mostra("Flavio tem " + (ano - 1977) + " anos");  
+
+        // mostra("Joaquim tem " + (ano - 1996) + " anos");  
+
+        // ano = 2017;        
+        
+        // mostra("Barney tem " + (ano - 1976) + " anos");
+       
+
+        
+
+
+
+        // var idadeFlavio = 39;
+        // var idadeJoquim = 20;
+        // var idadeBarney = 41;
+
+        // var media = (idadeFlavio + idadeJoquim + idadeBarney) /3;
+
+        // document.write("A media de das idades e " + Math.round(media));
+
+        // var nome = "Daniel";
+
+        // document.write("<br>");
+
+        // document.write("A idade de " + nome + " e " + idadeFlavio);
+
+        // var linda = 12;
+        // var guaraciara = 15;
+        // var perola = 13;
+
+        // var totalIdades = linda + guaraciara + perola;
+
+        // document.write("<br>");
+
+        // document.write("A media de idade das filhas do hacker é " + ( totalIdades / 3));
+      
+    </script>
+    
+</body>
+</html>
